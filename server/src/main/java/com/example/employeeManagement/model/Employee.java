@@ -11,8 +11,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Employee implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false, updatable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String name;
@@ -21,7 +20,7 @@ public class Employee implements Serializable {
 	private String phone;
 	private String imageUrl;
 
-	@Column(nullable = false, updatable = false)
+	@Column(updatable = false)
 	private String employeeCode;
 
 	public Employee() {

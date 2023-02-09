@@ -28,8 +28,17 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 
-	public Employee updateEmployee(Employee employee) {
-		return employeeRepository.save(employee);
+	public Employee updateEmployeeById(Long id, Employee employee) {
+		Employee existingEmployee = findEmployeeById(id);
+		existingEmployee.setName(employee.getName());
+		existingEmployee.setEmail(employee.getEmail());
+		existingEmployee.setPhone(employee.getPhone());
+		existingEmployee.setJobTitle(employee.getJobTitle());
+		existingEmployee.setImageUrl(employee.getImageUrl());
+		existingEmployee.setEmployeeCode(employee.getEmployeeCode());
+
+		employeeRepository.save(existingEmployee);
+		return existingEmployee;
 	}
 
 	public Employee findEmployeeById(Long id) {
